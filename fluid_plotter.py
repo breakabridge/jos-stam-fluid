@@ -10,11 +10,11 @@ line = data[0].split(",")
 N = int(line[0])
 frames = int(line[1])
 
-dens = np.zeros((N+2, N+2), dtype = 'float')
+dens = np.zeros((N, N), dtype = 'float')
 line = data[1].split(",")
-for i in range(N+2):
-        for j in range(N+2):
-            dens[i][j] = float(line[i + (N+2) * j])
+for i in range(N):
+        for j in range(N):
+            dens[i][j] = float(line[i + N * j])
 fig = plt.figure()
 ax = fig.add_subplot(111, autoscale_on = True)
 ax.set_xticks([])
@@ -26,9 +26,9 @@ def init():
 
 def animate(t, im, dens):
     line = data[t+1].split(",")
-    for i in range(N+2):
-        for j in range(N+2):
-            dens[i][j] = float(line[i + (N+2) * j])
+    for i in range(N):
+        for j in range(N):
+            dens[i][j] = float(line[i + N * j])
     im.set_data(dens)
     return im,
 
