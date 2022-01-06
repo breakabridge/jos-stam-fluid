@@ -145,8 +145,8 @@ int main()  {
         vel_step(N, u, v, u_prev, v_prev, visc, dt);
         dens_step(N, dens, dens_prev, u, v, diff, dt);
 
-        for (int x = 0; x < N+2; x++)  {
-            for (int y = 0; y < N+2; y++)  {
+        for (int x = 1; x < N+1; x++)  {
+            for (int y = 1; y < N+1; y++)  {
                 file << dens[IX(x, y)] << ",";
             }
         }
